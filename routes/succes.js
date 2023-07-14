@@ -1,7 +1,5 @@
 const express=require('express');
 const router=express.Router();
-router.post('/success',(req,res,next)=>{
-    console.log("sucess")
-    res.write('<h1>Form successfuly filled</h1>');
-})
+const sucesscontrollers=require('../controllers/product')
+router.post('/success',sucesscontrollers.success);
 module.exports=router;

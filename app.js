@@ -5,6 +5,7 @@ const shoproute=require('./routes/shop');
 const contactus=require('./routes/contact');
 const sucess=require('./routes/succes')
 const bodyparser=require('body-parser');
+const pageerror=require('./controllers/error');
 const app=express1();
 
 app.use(bodyparser.urlencoded({extended:false}));
@@ -12,9 +13,7 @@ app.use('/admin',adminroute);
 app.use('/shop',shoproute);
 app.use(contactus);
 app.use(sucess);
-app.use((req,res,next)=>{
-   res.status(404).sendFile(path.join(__dirname,'views','404.html'));
-});
+app.use(pageerror.pageerror1);
 
 
 
